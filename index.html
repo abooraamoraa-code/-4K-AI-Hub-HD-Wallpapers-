@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="fmIO4Mqa4kbHD9R2jhb-fLWyRyd3Bi9UDHC8v84CkZk">
+<title>منصة أبو العز الرقمية | الخلفيات والأدوات الذكية</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+:root {
+    --bg-main: #0b0f19;
+    --card-bg: #131c2e;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgba(19, 28, 46, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+nav { display: flex; gap: 20px; align-items: center; }
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.nav-btn:hover, .nav-btn.active { color: var(--accent-cyan); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; }
+
+.hero-box {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+.hero-box h1 {
+    font-size: 38px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.hero-box p { font-size: 16px; color: var(--text-muted); margin-bottom: 30px; }
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.search-box input {
+    width: 100%;
+    padding: 15px 25px;
+    background: rgba(19, 28, 46, 0.9);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+.search-box input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.grid-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.item-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.item-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+}
+
+.item-img {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+
+.item-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.item-title { font-size: 18px; font-weight: 900; margin-bottom: 8px; color: #fff; }
+.item-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; flex: 1; }
+.action-btn {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+footer {
+    background: #070a12;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo" onclick="switchView('home')">🚀 منصة أبو العز</div>
+    <nav>
+        <button class="nav-btn active" onclick="switchView('home')">الرئيسية</button>
+        <button class="nav-btn" onclick="switchView('tools')">الأدوات الرقمية</button>
+        <button class="nav-btn" onclick="switchView('about')">عن المطور</button>
+    </nav>
+</header>
+
+<div class="container">
+    <div id="homeView" class="page-view">
+        <div class="hero-box">
+            <h1>أكبر مكتبة للخلفيات والأدوات الرقمية</h1>
+            <p>تصفح أحدث الخلفيات المذهلة والأدوات البرمجية السريعة المصممة خصيصاً لك.</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن خلفية، أداة، أو خدمة..." onkeyup="filterItems()">
+            </div>
+        </div>
+
+        <div class="grid-system" id="itemsGrid"></div>
+    </div>
+</div>
+
+<footer>
+    جميع الحقوق محفوظة © 2026 - إشراف وتطوير: أبو العز
+</footer>
+
+<script>
+    const resourcesData = [
+        { id: 1, title: "خلفية سايبربانك 4K", category: "خلفيات", desc: "خلفية فائقة الدقة لأجهزة الكمبيوتر بتصميم نيون مستقبلية مبهرة.", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" },
+        { id: 2, title: "أداة تنسيق الأكواد السريعة", category: "أدوات", desc: "نظّف أكواد HTML و JavaScript الخاصة بك بضغطة زر واحدة.", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" },
+        { id: 3, title: "خلفية أنمي المحارب الأسطوري", category: "خلفيات", desc: "تصميم مذهل مستوحى من أقوى عوالم الأنمي والقتال.", image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" },
+        { id: 4, title: "مولد الألوان الاحترافي", category: "أدوات", desc: "استخرج أروع درجات الألوان المتناسقة لموقعك القادم.", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" }
+    ];
+
+    function renderItems(items) {
+        const grid = document.getElementById('itemsGrid');
+        grid.innerHTML = '';
+        if(items.length === 0) {
+            grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">لا توجد نتائج تطابق بحثك..</p>';
+            return;
+        }
+        items.forEach(item => {
+            grid.innerHTML += `
+                <div class="item-card" onclick="alert('تم اختيار العنصر: ${item.title} بنجاح!')">
+                    <div class="item-img" style="background-image: url('${item.image}')"></div>
+                    <div class="item-content">
+                        <h3 class="item-title">${item.title}</h3>
+                        <p class="item-desc">${item.desc}</p>
+                        <button class="action-btn">تحميل / استعراض 📥</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function filterItems() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = resourcesData.filter(i => 
+            i.title.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query) || i.category.toLowerCase().includes(query)
+        );
+        renderItems(filtered);
+    }
+
+    function switchView(viewName) {
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        if(viewName === 'home') {
+            renderItems(resourcesData);
+        } else if(viewName === 'tools') {
+            const tools = resourcesData.filter(i => i.category === 'أدوات');
+            renderItems(tools);
+        } else if(viewName === 'about') {
+            document.getElementById('itemsGrid').innerHTML = `
+                <div style="grid-column: 1/-1; background: var(--card-bg); padding: 40px; border-radius: 15px; text-align: center; border: 1px solid var(--accent-blue);">
+                    <h2 style="color:#fff; margin-bottom: 15px;">عن منصة أبو العز</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8;">منصة رقمية متكاملة تقدم أحدث الخلفيات والأدوات التقنية للمستخدمين والمبرمجين بإشراف وتطوير مباشر من أبو العز.</p>
+                </div>
+            `;
+        }
+    }
+
+    window.onload = () => renderItems(resourcesData);
+</script>
+
+</body>
+</html>
